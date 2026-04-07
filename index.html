@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ohm's Law Calculator</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #f4f4f4;
+            padding-top: 50px;
+        }
+
+        .box {
+            background: white;
+            width: 350px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h1>Ohm's Law Calculator</h1>
+
+        <input type="number" id="voltage" placeholder="Voltage (V)">
+        <input type="number" id="current" placeholder="Current (I)">
+        <input type="number" id="resistance" placeholder="Resistance (R)">
+
+        <br>
+
+        <button onclick="calculateVoltage()">Find Voltage</button>
+        <button onclick="calculateCurrent()">Find Current</button>
+        <button onclick="calculateResistance()">Find Resistance</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculateVoltage() {
+            let current = document.getElementById("current").value;
+            let resistance = document.getElementById("resistance").value;
+            let voltage = current * resistance;
+            document.getElementById("result").innerText =
+                "Voltage = " + voltage + " V";
+        }
+
+        function calculateCurrent() {
+            let voltage = document.getElementById("voltage").value;
+            let resistance = document.getElementById("resistance").value;
+            let current = voltage / resistance;
+            document.getElementById("result").innerText =
+                "Current = " + current + " A";
+        }
+
+        function calculateResistance() {
+            let voltage = document.getElementById("voltage").value;
+            let current = document.getElementById("current").value;
+            let resistance = voltage / current;
+            document.getElementById("result").innerText =
+                "Resistance = " + resistance + " Ω";
+        }
+    </script>
+
+</body>
+</html>
